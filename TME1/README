@@ -1,0 +1,79 @@
+== Participants : 1 ==
+
+	Olivier MARIN
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	include/fifo.h
+		Définitions (types et opérations) pour une file (FIFO) générique
+		[Ex. 6, 7]
+
+	include/list.h
+		Définitions (types et opérations) pour une liste doublement chaînée générique
+		[Ex. 4, 5, 6]
+
+	include/stack.h
+		Définitions (types et opérations) pour une pile (LIFO) générique
+		[Ex. 1, 2, 5]
+
+	src/fifo_test.c
+		Programme principal (main) pour tester la file générique
+		[Ex. 6]
+
+	src/stack_array.c
+		Implémentation de la pile sous forme de tableau statique
+		[Ex. 1, 2]
+
+	src/stack_test.c
+		Programme principal (main) pour tester la pile générique
+		[Ex. 1, 2, 3, 5]
+
+	src/list_impl.c
+		Squelette d'implémentation de la liste doublement chaînée 
+		[Ex. 4, 5, 6, 7]
+
+	src/stack_list.c
+		construire une pile dynamique implémentant stack.h et utilisant list.h
+		[Ex. 5, 6, 7]
+
+	src/fifo_list.c
+		construire une pile dynamique implémentant fifo.h et utilisant list.h 
+		[Ex. 6, 7]
+
+
+== Directives de 'makefile.ini' ==
+
+	runstack
+		Compilation de l'implémentation stack_list.c et du programme de test de la pile (stack_test.c) au format binaire (stack_test)
+		Lancement de l'exécutable stack_test
+
+	runfifo
+		Compilation de l'implémentation fifo_list.c et du programme de test de la pile (fifo_test.c) au format binaire (fifo_test)
+		Lancement de l'exécutable fifo_test
+
+	all
+		Renvoi vers 'runstack' et 'runfifo'
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+
+== Etat d'avancement ==
+
+	L'exercice 1 (pile sous forme de tableau statique) - OK
+	L'exercice 2 (archiver stack_array.o dans une bibliothèque libstack.a) - OK
+	L'exercice 3 (modifier depuis le makefile et afficher STACK_SIZE) - OK
+	L'exercice 4 (implémentation de la liste doublement chaînée) - OK
+	L'exercice 5 (Pile) - OK
+	L'exercice 6 (File) - OK
+	L'exercice 7 (Moyen moins couteux pour size()) - OK
+
+
+== Réponses ==
+
+	Exercice 7 :
+
+	On peut ajouter un entier dans la structure list_type qui est égal à la taille de la liste, cet entier est initialisé à 0 l'ors de l'initialisation de la liste puis est incrémenté à chaque fois qu'on ajoute un élément à la liste. 
