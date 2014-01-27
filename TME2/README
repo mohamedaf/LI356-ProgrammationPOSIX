@@ -1,0 +1,57 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	Prog1.c
+		Exercices 1 et 2: Créer N_FILS de 2 façons récursive et itérative en effectuant 3 		types différents de wait;
+
+	Exo3.c
+		Exercice 3: Modifier le code pour garantir que le processus père se termine avant 		tout les fils.
+
+	decoder.c
+		Exercice4: Créer des processus fils qui recherchent les valeurs de a,b,c,d et e afin 		d’avoir un carré magique.
+
+	Converter.h
+		Exercice5: Prototypes des fonctions, définitions des macros des devises et cours et 		declaration de la structure.
+
+	Converter.c
+		Exercice5: Donner une devise et un montant en ligne de commande et avoir la 			conversion par rapport au cours de devises dans Converter.h en utilisant les 			fonctions définies.  
+
+
+== Directives de 'Makefile' ==
+
+	testprog 
+		Construire l’executable de Prog1.c 
+    		
+    	testExo3 
+		Construire l’executable de Exo3.c
+    
+    	testdecoder 
+		Construire l’executable de decoder.c
+    
+    	testconverters
+		Construire l’executable de Converter.c
+
+	all
+		Renvoi vers 'testprog', 'testExo3', 'testdecoder', et 'testconverters'.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+
+== Etat d'avancement ==
+
+	L'exercice 1 () - OK
+	L'exercice 2 () - OK
+	L'exercice 3 () - OK
+	L'exercice 4 () - OK
+	L'exercice 5 () - OK
+
+
+== Réponses ==
+
+	Exercice 3: Les réponses ont été données au TD.
