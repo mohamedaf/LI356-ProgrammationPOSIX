@@ -1,0 +1,74 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	Exercice1.c
+		Création N processus FILS et affichages des pid des processus par le dernier crée.
+		[Ex. 1]
+
+	fork-exec.c
+		Utilisation de la fonction systeme afin d'executer son contenu dans un nouveau processus ce qui permet de terminer la suite du code.
+		[Ex. 2]
+
+	Exercice3.c
+		Compilation et edition des liens de fichiers c.
+		[Ex. 3]
+
+	Exercice4.c
+		Execution du programme actuel n fois, le nombre de fois donnée en argument l'ors de l'execution en ligne de commande.
+		[Ex. 4]
+
+	spy-incomplete.c
+		Execution de commandes données en ligne de commande fonctionne comme une surcouche shell.
+		[Ex. 5]
+
+
+== Directives de 'MAKEFILE' ==
+	Pour le MAKEFILE je n'ai pas eu le temps de faire les dossiers comme demandé (obg,bin etc...).
+
+	Exercice1  
+		Edition des liens construction de l’executable de Exercice1.o après compilation de Exercice1.c 
+    		
+    frok-exec  
+		Edition des liens construction de l’executable de fork-exec.o après compilation de frok-exec.c 
+    
+    	Exercice4 
+		Edition des liens construction de l’executable de Exercice4.o après compilation de Exercice4.c 
+    
+    	spy-incomplete
+		Edition des liens construction de l’executable de spy-incomplete.o après compilation de 	spy-incomplete.c 
+
+	all
+		Renvoi vers 'Exercice1', 'frok-exec', 'Exercice4', et 'spy-incomplete'.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+
+== Etat d'avancement ==
+
+	L'exercice 1 - OK
+	L'exercice 2 - OK
+	L'exercice 3 - Problème l'ors de l'édition des liens - Non
+	L'exercice 4 - OK
+	L'exercice 5 - OK
+
+
+== Réponses ==
+
+	Exercice 1:
+
+	1/ Non car la programme principale n'a pas les pid de tout ses fils, le seul moyen serait d'utiliser la fonction vfork() afin de garder les valeurs modifiés
+	2/ Non aussi meme raison. sauf en utilisant vfork().
+
+	Exercice 2:
+
+	pour la commande exec le progremme en cours est remplacé par le programme de la commande date la commande est donc execute au sein du processus en cours, alors que la commande system lance un nouveau processus executant la commande date puis fait un exit et retourne au processus pere qui attend ça terminaison.
+
+	Exercice 4:
+
+	Meme PID car la fonction exec execute son contenu dans le processus actuel donc aucun nouveau processus n'est crée est du coup le PID reste le meme.
