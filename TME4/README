@@ -1,0 +1,115 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+	
+	init-sig/init-sig[12345].c
+		mini-programmes divers manipulants de plusieurs manières les signaux.
+		[Ex. 1] 	
+
+	vodoo.c
+		programme qui crée un processus zombie.
+		[Ex. 2]
+
+	pending-signals.c
+		programme affichant les signaux pendants (SIGINT,SIGQUIT).
+		[Ex. 3]
+
+	pending-signals2.c
+		programme ignorants les signaux (SIGINT,SIGQUIT) donc changeant leurs comportement par défaut.
+		[Ex. 4] 		
+
+	pending-signals3.c
+		programme affichant un compteur incrémenté l’ors de la réception d’un signal SIGINT.
+		[Ex. 5]
+
+	accountant.c
+		programme affiche le nombre global de signaux reçu et le nombre de signaux reçu pour chaque signal séparément, il s’arrête après avoir reçu 5 signaux SIGINT.
+		[Ex. 6]
+		
+	spy.c
+		le programme attend NBUF (ici 3) commandes avant de les exécuter (son fils les exécutent) puis fais la même chose pour la suite.
+		[Ex. 7]
+
+== Directives de ‘Makefile ==
+
+	vodoo  
+		Edition des liens construction de l’exécutable de vodoo.o après compilation de vodoo.c 
+    		
+    	pending-signals  
+		Edition des liens construction de l’exécutable de pending-signals.o après compilation de pending-signals.c 
+
+	pending-signals2  
+		Edition des liens construction de l’exécutable de pending-signals2.o après compilation de pending-signals2.c 
+
+	pending-signals3  
+		Edition des liens construction de l’exécutable de pending-signals3.o après compilation de pending-signals3.c 
+    
+    	accountant 
+		Edition des liens construction de l’exécutable de accountant.o après compilation de accountant.c 
+    
+    	spy
+		Edition des liens construction de l’exécutable de spy.o après compilation de spy.c 
+
+	all
+		Renvoi vers ‘voodoo’, ‘pending-signals’, ‘pending-signals2’, ‘pending-signals3’, ‘accountant’, et ‘spy’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+	ce qui est fait à chaque exercice est explique au dessus «Fichiers inclus » 
+
+	L'exercice 1 - OK
+	L'exercice 2 - OK
+	L'exercice 3 - OK
+	L'exercice 4 - OK
+	L'exercice 5 - OK
+	L'exercice 6 - OK
+	L'exercice 7 - Non    //problème au niveau du wait qui ne cesse d’attendre malgré que les fils soient terminés
+
+
+== Réponses ==
+
+	Exercice 1 :
+	
+		init-sig1.c
+		attend un signal quelconque, envois d’un SIGINT terminaison sans affichage car le signal SIGINT provoque la terminaison du programme.
+
+		init-sig2.c
+		blocage du programme attente SIGINT adret du programme l’ors de la réception d’un SIGINT.
+		
+		init-sig3.c
+		pour arrêter le programme autre signal de terminaison que SIGINT, SIGALARM ne fait pas effet à cause du handler de sigact et sisuspend attend un autre signal que SIGINT.
+
+		init-sig4.c
+		l’ors de la réception d’un signal SIGINT le handler de sigact est utilisé donc la fonction sigint_handler est utilisé ce qui la première fois ignore le signal mais la 2 ème fois provoque la terminaison du programme car redonne le comportement par défaut de SIGINT.
+
+		init-sig5.c
+		on donne un nouveau comportement à (SIGINT,SIGALRM), le handler contient donc les nouveaux comportement de ces signaux (affichages).
+		
+
+
+	Exercice 2 :
+		
+		Le programme s'arrete, SIGKILL provoque la terminaison du programme après le premier pause()
+
+	Exercice 3 :
+
+		pas d'affichage car au moment ou on démasque l'un des deux signaux va etre pris en compte et dans les 2 cas interrompre le processus et terminer le programme.
+
+	Exercice 4 :
+	
+		cette fois ci on n'a pas de signals pendants car les signaux sont ignorés à cause du handler donc on ne peut afficher les signaux envoyés non pris en compte.
+
+	Exercice 5 :
+
+		-val max affiché 1 car pendant le sleep executé en mode system le bit de SIGINT se transfome en 1 après avoir reçu 1 signal SIGINT ensuite même s'il en reçoit d'autres ça ne change pas le bit donc pendant le sleep c'est à dire tant qu'on est pas encore revenu en mode utilisateur on ne peut savoir si on a reçu plus d'un signal SIGINT.
+
+		-redefinitions comportements du signal SIGINT et on ignore le signal SIGQUIT donc aucun signal pendant.
+
+
+	
