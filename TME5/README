@@ -1,0 +1,60 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	newwait.c
+		Programmation de l’appel système WAIT.
+		[Ex. 1]
+
+	newsleep.c
+		Programmation de l’appel système SLEEP.
+		[Ex. 2]
+
+	synchro3.c
+		Attente terminaison calcul1 par tout les processus pour lancer calcul 2
+		[Ex. 3]
+
+	pointreprise.c
+		Attendre soit NFIN SIGINT ou un signal SIGALRM (automatique au bout de 5sec) pour se terminer
+		[Ex. 4]
+
+== Directives de ‘Makefile ==
+
+	newwait
+		Edition des liens construction de l’exécutable de newwait.o après compilation de newwait.c
+
+    	newsleep
+		Edition des liens construction de l’exécutable de newsleep.o après compilation de newsleep.c
+
+	synchro3
+		Edition des liens construction de l’exécutable de synchro3.o après compilation de synchro3.c
+
+	pointreprise
+		Edition des liens construction de l’exécutable de pointreprise.o après compilation de pointreprise.c
+
+	all
+		Renvoi vers ‘newwait’, ‘newsleep’, ‘synchro3’, et ‘pointreprise’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+	ce qui est fait à chaque exercice est explique au dessus «Fichiers inclus » 
+
+	L'exercice 1 - OK
+	L'exercice 2 - OK
+	L'exercice 3 - OK
+	L'exercice 4 - OK
+
+== Réponses ==
+
+   	Exercice 1:
+	Non, certains signaux peuvent ne pas etre prise en compte dans le cas par exemple ou le pere reçoit un 2 eme signal SIGCHLD alors qu'il n'a toujours pas traite le premier.
+
+	Exercice 3 :
+	nbsignaux = nbfils afin d'etre sur que tout les fils ont depasse l'etape voulue.
+
