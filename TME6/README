@@ -1,0 +1,53 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	liste-rep.c
+		lister fichiers ou sous repertoires du repertoire données en ligne de commande.
+		[Ex. 1]
+
+	setfilestats.c
+		Effacer, renommer ou changer les droits d'un fichier existant donnes en ligne de commande.
+		[Ex. 2]
+
+	filefusion.c
+		prend 3 fichiers en paramètres (3 eme peut etre inexistant) lit les 2 premiers fichiers mots par mots et les ecrient dans le 3 eme fichier.
+		[Ex. 3]
+
+	findword.c
+		cherche le nombre d'occurence d'un mot dans un fichier et ses positions.
+		[Ex. 4]
+
+	redirection.c
+		redirection STDOUT.
+		[Ex. 5]
+
+== Directives de ‘Makefile ==
+
+	$(OBJ)/%.o
+		Compilation de tout les fichiers .c, leurs fichiers objets resultants de la compilation sont dans le dossier obj.
+
+    	$(BIN)/%
+		Edition des liens et Construction des exécutables des fichiers objets, resultats placés dans le dossier bin.
+
+	all
+		Renvoi vers ‘${BIN}/liste-rep’, ‘${BIN}/setfilestats’, ‘${BIN}/filefusion’, ‘${BIN}/findword’, et ‘${BIN}/redirection’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+	ce qui est fait à chaque exercice est explique au dessus «Fichiers inclus » 
+
+	L'exercice 1 - OK
+	L'exercice 2 - OK
+	L'exercice 3 - OK
+	L'exercice 4 - OK
+	L'exercice 5 - OK
+
+== Réponses ==
+
