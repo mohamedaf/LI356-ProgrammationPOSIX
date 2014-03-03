@@ -1,0 +1,61 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	ficindex_enonce.c
+		Fonction pour construire bibliotheque traitement sur fichiers.
+
+== Directives de ‘Makefile ==
+
+	${OBJ}/ficindex_enonce.o
+		Compilation du fichier ficindex_enonce.c, son objet resultant de la compilation est dans le dossier obj.
+
+	${LIB}/libficindex.a:
+		Construction de la bibliotheque "libfixindex.a" à partir de "ficindex_enonce.o".
+
+    	${BIN}/autotestfic
+		Edition des liens et Construction de l'executable du fichier objet "autotestfic.o" en se servant de la bibliotheque "libficindex.a", resultat placés dans le dossier bin.
+
+	all
+		Renvoi vers ‘${BIN}/autotestfic’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+
+	indopen - OK.
+	indclose - OK.
+	inderead - OK.
+	indwrite - OK.
+	indlseek - OK.
+	indsearch - OK.
+	indxchg - Pas OK.
+
+== Réponses ==
+
+   indopen:
+	On ouvre le fichier indexé, si le fichier s’est ouvert sans problème, on lit le premier entier du fichier qui représente la taille des données stockées dans le fichier si le fichier ne vient pas d’être crée (le retour du read > 0), sinon on écrit au début du fichier crée l’entier ind donnée en paramètre représentant la taille des données stockées. Puis dans les deux cas on retourne le descripteur du fichier, s’il y’a un problème à un moment ou un autre la fonction retourne -1. 
+
+   indclose:
+	On ferme le fichier indexé en utilisant le descripteur donnée en paramètre.
+
+   inderead:
+	La fonction lit nbytes octets dans le fichier indexé dont le descripteur donnée en paramètre la lecture est faite en utilisant la fonction read et ceci seulement si nbytes >= à la taille d’index.
+La fonction retourne le nombre de caractères lus, 0 si fin de fichier (rien n'est lu) ,-1 si un quelconque problème s’est produit.
+
+   indwrite:
+	La fonction écrit sur dossier nbytes octets dans le fichier indexé dont le descripteur donnée en paramètre l’écriture est faite en utilisant la fonction write et ceci seulement si nbytes >= à la taille d’index. La fonction retourne le nombre d’octets écrits, 0 si fin de fichier (rien n'est écrit) ,-1 si un quelconque problème s’est produit.
+
+   indlseek:
+	Deplace le curseur dans un fichier indexe de offset structure, si début de fichier on saute le premier entier. Pour dépasser l’offset on utilise la fonction lseek.
+
+   indsearch:
+	Rechercher un élément dans un fichier indexé, tout d’abord on alloue un pointeur de type void* et de taille sizeof(indx[fd]) avec fd le descripteur du fichier, ce pointeur sert à récupère le résultat de la lecture structure par structure ou on compare à chaque fois la structure lu avec la clé key donnée en paramètre et en utilisant la fonction cmp donnée en paramètre aussi on retourne la première occurrence trouvé ou NULL si pas d’occurrence.	
+
+   indxchg:
+	Change l'indexation d'un fichier, on ouvre les 2 fichiers old et new avec un flag O_CREAT | O_TRUNC pour être sur d'avoir un nouveau fichier vide, ensuite on lie puis on écrit strcuture par strcuture de taille newind depuis le fichier old vers le fichiers new puis on ferme les deux fichiers. En cas d'un problème -1 est retourné.
