@@ -1,0 +1,56 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	single_converter.c
+		un processus fils effectue les conversion et envoie le résultat au père qui l’affiche ensuite et ceci au moyen d’un tube anonyme.
+		[Ex. 1]
+
+	conversion_client.c
+		Envois les informations au serveur pour les conversions au moyen d’un tube nommé requête puis attend la réponse du serveur au moyen d’un tube nommé réponse donc le résultat de la réponse qu’il affiche ensuite.
+		[Ex. 2][Ex. 3]
+
+	conversion_server.c
+		Crée les deux tubes nommées requête et réponse, reçoit (lit) la requête du client effectue les conversion puis envoie le résultat au client puis re boucle en attendant une autre demande, s’arrête l’ors de la réception d’un signal SIGINT.
+		[Ex. 2]
+
+	multi_converter.c
+		Effectue le même travail que conversion_server.c sauf que cette fois-ci chaque conversion est effectué par un fils, la communication père fils s’effectue en utilisant un tube anonyme, le père attend de recevoir un SIGUSR1 de la part du fils afin d’éviter le blocage l’ors de la lecture du père sur le tube anonyme.
+		[Ex. 3]
+
+== Directives de ‘Makefile ==
+
+	%.o
+		Compilation de tout les fichiers .c, fichiers objets résultants.
+
+    	single_converter 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘single_converter.o’.
+
+	conversion_server 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘conversion_server.o’.
+
+	conversion_client 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘conversion_client.o’.
+
+	multi_converter
+		Edition des liens et Construction de l’exécutable du fichier objet ‘multi_converter.o’.
+	
+	all
+		Renvoi vers ‘single_converter’, ‘conversion_server’, ‘conversion_client’, et ‘multi_converter’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+	ce qui est fait à chaque exercice est explique au dessus «Fichiers inclus » 
+
+	L'exercice 1 - OK
+	L'exercice 2 - OK
+	L'exercice 3 - OK
+
+== Réponses ==
+
