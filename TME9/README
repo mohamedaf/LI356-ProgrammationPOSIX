@@ -1,0 +1,48 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	capitalize.c
+		recupere texte STDIN change caractères minuscule en majuscule puis affiche le résultat, communication perd fils par segment mémoire partagee.
+		[Ex. 1]
+
+	multiconverter.c
+		Effectue le conversion, 2 synchro entre le serveur et le client et entre le pere et le fils dans le serveur pour la conversion, 2 segments mémoires partagées utilisées un pour la communication pere,fils et le deuxième pour la communication client serveur.
+		[Ex. 2]
+
+	conversion_client.c
+		Envois au serveur les données pour la conversion a travers un segment mémoire partagee il utilise 2 sémaphores pour la synchro avec le serveur.
+		[Ex. 2]
+
+== Directives de ‘Makefile ==
+
+	%.o
+		Compilation de tout les fichiers .c, fichiers objets résultants.
+
+    	capitalize 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘capitalize.o’.
+
+	conversion_client 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘conversion_client.o’.
+
+	multi_converter
+		Edition des liens et Construction de l’exécutable du fichier objet ‘multi_converter.o’.
+	
+	all
+		Renvoi vers ‘capitalize’, ‘multiconverter’, et ‘conversion_client’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+	ce qui est fait à chaque exercice est explique au dessus «Fichiers inclus » 
+
+	L'exercice 1 - OK
+	L'exercice 2 - OK
+
+== Réponses ==
+
