@@ -1,0 +1,50 @@
+== Participants : 1 ==
+
+	Nom : AFFES.
+	Prénom : Mohamed Amin.
+	Numéro Etudiant : 3262731.
+
+== Fichiers inclus ==
+
+	myqueue.c
+		Implémentation des fonction pour la file.
+
+	test1_myqueue.c
+		test numéro 1 fournis.
+
+	test2_myqueue.c
+		test numéro 2 fournis.
+
+== Directives de ‘Makefile ==
+
+	${OBJ}/myqueue.o
+		Compilation du fichier ‘myqueue.c’, fichier objet résultant ‘myqueue.o’.
+
+	${OBJ}/test1_myqueue.o
+		Compilation du fichier ‘test1_myqueue.c’, fichier objet résultant ‘test1_myqueue.o’.
+
+	${OBJ}/test2_myqueue.o
+		Compilation du fichier ‘test1_myqueue.c’, fichier objet résultant ‘test1_myqueue.o’.
+
+	${LIB}/libmyqueue.a
+		Construction de la bibliothèque ‘libmyqueue.a’ depuis le fichier objet ‘myqueue.o’.
+
+    	${BIN}/test1_myqueue 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘test1_myqueue.o’.
+
+	${BIN}/test2_myqueue 
+		Edition des liens et Construction de l’exécutable du fichier objet ‘test2_myqueue.o’.
+	
+	all
+		Renvoi vers ‘${BIN}/test1_myqueue’ et ‘${BIN}/test2_myqueue’.
+
+	clean
+		Suppression de tous les binaires, de tous les fichiers objet, et de toutes les bibliothèques
+
+== Etat d'avancement ==
+	ce qui est fait à chaque exercice est explique au dessus «Fichiers inclus » 
+
+	Projet - OK.
+
+== Réponses ==
+
